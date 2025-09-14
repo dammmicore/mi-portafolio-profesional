@@ -35,9 +35,6 @@
                     <a href="#contact" class="btn primary-btn">Contactar</a>
                     <a href="https://drive.google.com/file/d/1XTL73_EwTULNlAhxViNbv7BrvIzZ-N4m/view?usp=sharing" download class="btn secondary-btn">Descargar CV</a>
                 </div>
-                <!-- <div class="hero-image">
-                    <img src="https://via.placeholder.com/400x400" alt="Retrato de Damaris Jiménez">
-                </div> -->
             </div>
         </section>
 
@@ -157,15 +154,43 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="year"></span> Damaris Jiménez. Todos los derechos reservados.</p>
+    <footer>
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h3>Damaris Jiménez</h3>
+            <p>Diseñadora UI/UX y Desarrolladora Web, siempre buscando crear experiencias digitales con un toque humano.</p>
+            <p>Email: <a href="mailto:djimenezac@outlook.com">djimenezac@outlook.com</a></p>
+        </div>
+
+        <div class="footer-section links">
+            <h3>Navegación</h3>
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section social">
+            <h3>Conéctate</h3>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/dam-jimenez-1830vk9795/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/dammmicore" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/dammmicore/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-    </footer>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; <span id="current-year"></span> Damaris Jiménez. Todos los derechos reservados.
+    </div>
+</footer>
+
+<script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
 
     <script src="js/script.js"></script>
 </body>

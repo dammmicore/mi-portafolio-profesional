@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Menú Hamburguesa Responsive
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const mainNav = document.querySelector('.main-nav');
     const navLinks = document.querySelectorAll('.main-nav a');
@@ -7,10 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgerMenu.addEventListener('click', () => {
         mainNav.classList.toggle('active');
         hamburgerMenu.querySelector('i').classList.toggle('fa-bars');
-        hamburgerMenu.querySelector('i').classList.toggle('fa-times'); // Cambia el icono a una 'X'
+        hamburgerMenu.querySelector('i').classList.toggle('fa-times');
     });
 
-    // Cierra el menú al hacer clic en un enlace (para móviles)
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             mainNav.classList.remove('active');
@@ -19,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Animación de Barras de Progreso (al hacer scroll)
     const skillsSection = document.getElementById('skills');
     const progressBars = document.querySelectorAll('.progress');
 
@@ -33,14 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5 // Cuando el 50% de la sección es visible
+        threshold: 0.5
     };
 
     const skillObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 animateProgressBars();
-                skillObserver.unobserve(entry.target); // Dejar de observar una vez animado
+                skillObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -49,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         skillObserver.observe(skillsSection);
     }
 
-    // 3. Validación de Formulario en Tiempo Real
     const contactForm = document.getElementById('contact-form');
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
@@ -83,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     messageInput.addEventListener('input', () => validateField(messageInput, document.getElementById('message-error')));
 
     contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Previene el envío por defecto del formulario
+        e.preventDefault();
 
         const isNameValid = validateField(nameInput, document.getElementById('name-error'));
         const isEmailValid = validateField(emailInput, document.getElementById('email-error'), isValidEmail);
@@ -91,30 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isNameValid && isEmailValid && isMessageValid) {
             formStatus.textContent = 'Enviando mensaje...';
-            formStatus.className = 'form-status'; // Resetear clases
+            formStatus.className = 'form-status';
             
-            // Simular envío de formulario (en un entorno real, enviarías a un backend)
             try {
-                // Aquí iría tu código para enviar el formulario, por ejemplo:
-                // const response = await fetch('/api/contact', {
-                //     method: 'POST',
-                //     headers: {
-                //         'Content-Type': 'application/json'
-                //     },
-                //     body: JSON.stringify({
-                //         name: nameInput.value,
-                //         email: emailInput.value,
-                //         message: messageInput.value
-                //     })
-                // });
-                // const result = await response.json();
-
-                // Simulamos un retraso y un éxito
                 await new Promise(resolve => setTimeout(resolve, 2000));
 
                 formStatus.textContent = '¡Mensaje enviado con éxito! Te responderé pronto.';
                 formStatus.classList.add('success');
-                contactForm.reset(); // Limpiar el formulario
+                contactForm.reset();
             } catch (error) {
                 console.error('Error al enviar el formulario:', error);
                 formStatus.textContent = 'Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.';
@@ -126,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 4. Efecto de desplazamiento suave para anclas
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -137,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Animación simple al cargar la página (Hero Section)
     const heroContent = document.querySelector('.hero-content');
     const heroImage = document.querySelector('.hero-image');
 
